@@ -120,3 +120,6 @@ Both `POST /api/payments/preview` and `POST /api/payments` call this identical f
 - **Where I disagreed with the tool output:**
   1. *Caching mechanism:* An AI model suggested using Next.js `revalidateTag('catalog', 'max')`. I rejected this because Next's tag revalidation operates on a stale-while-revalidate model where the immediate next request can still serve stale data. Instead, I implemented an explicit process-local cached catalogue that is synchronously invalidated (`catalogCache = null`) on a successful payment, guaranteeing that the very next request is fresh.
   2. *Form clearing logic:* An AI draft cleared the extra dropdown only upon form submission. I adjusted this to reactive clearing: when the user selects `Maple lamp` in the dropdown, the form immediately resets and disables `Cushion`, preventing invalid configurations before submission.
+
+  ## Live URL:
+  https://build-shop-app.vercel.app/shop
